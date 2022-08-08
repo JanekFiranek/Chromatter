@@ -1,0 +1,4 @@
+name: ChromaTools
+main: me.username.testplugin.TestPlugin
+version: '${version}'
+author: JanekFiranek
