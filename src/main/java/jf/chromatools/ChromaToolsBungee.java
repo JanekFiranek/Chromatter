@@ -6,6 +6,6 @@ public class ChromaToolsBungee extends Plugin {
 
     @Override
     public void onEnable() {
-        
+
     }
 }

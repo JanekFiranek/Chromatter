@@ -33,6 +33,11 @@ test {
     useJUnitPlatform()
 }
 
+task copyJarToServer(type: Copy) {
+    from "build/libs/ChromaTools-" + version + ".jar"
+    into "testsv/plugins"
+}
+
 def targetJavaVersion = 16
 java {
     def javaVersion = JavaVersion.toVersion(targetJavaVersion)
