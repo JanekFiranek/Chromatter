@@ -1,4 +1,4 @@
 name: ChromaTools
-main: me.username.testplugin.TestPlugin
+main: jf.chromatools.ChromaToolsBungee
 version: '${version}'
 author: JanekFiranek

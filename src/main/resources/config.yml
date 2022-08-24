@@ -1,2 +1,6 @@
 custom_colors:
+  # Example color defs
   gold: "FFD700"
+  lavender: "E6E6FA"
+  beige: "F5F5DC"
+  lime: "32CD32"

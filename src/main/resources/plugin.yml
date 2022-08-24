@@ -1,5 +1,5 @@
-name: ChromaLib
+name: ChromaTools
 version: '${version}'
 main: jf.chromatools.ChromaToolsBukkit
-api-version: 1.17
+api-version: 1.19.2
 authors: [ JanekFiranek ]

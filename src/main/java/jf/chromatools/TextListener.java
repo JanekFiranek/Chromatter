@@ -23,7 +23,7 @@ public class TextListener implements Listener {
     @EventHandler
     public void onChat(final AsyncPlayerChatEvent event) {
         event.setCancelled(true);
-        FormattedMessage message = new FormattedMessage(event.getMessage(), ChatFormatter.defaultFormatters());
+        FormattedMessage message = new FormattedMessage(event.getMessage(), ChatFormatter.defaultFormatters(false));
         Bukkit.spigot().broadcast(message.getTextComponents());
         //   event.setMessage(this.formatter.color(event.getMessage(), this.enableHex));
 

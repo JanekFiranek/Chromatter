@@ -11,55 +11,55 @@ import java.util.function.Consumer;
 
 public class ChatCode implements Consumer<TextComponent> {
     private static final List<ChatCode> constants = Arrays.asList(
-            new ChatCode(0x000000, "0", true),
-            new ChatCode(0x0000AA, "1", true),
-            new ChatCode(0x00AA00, "2", true),
-            new ChatCode(0x00AAAA, "3", true),
-            new ChatCode(0xAA0000, "4", true),
-            new ChatCode(0xAA00AA, "5", true),
-            new ChatCode(0xFFAA00, "6", true),
-            new ChatCode(0xAAAAAA, "7", true),
-            new ChatCode(0x555555, "8", true),
-            new ChatCode(0x5555FF, "9", true),
-            new ChatCode(0x55FF55, "a", true),
-            new ChatCode(0x55FFFF, "b", true),
-            new ChatCode(0xFF5555, "c", true),
-            new ChatCode(0xFF55FF, "d", true),
-            new ChatCode(0xFFFF55, "e", true),
-            new ChatCode(0xFFFFFF, "f", true),
-            new ChatCode(0, "k", false, t -> t.setObfuscated(true)),
-            new ChatCode(0, "l", false, t -> t.setBold(true)),
-            new ChatCode(0, "m", false, t -> t.setStrikethrough(true)),
-            new ChatCode(0, "n", false, t -> t.setUnderlined(true)),
-            new ChatCode(0, "o", false, t -> t.setItalic(true)),
-            new ChatCode(0, "r", false, t -> {
+            new ChatCode(0x000000, "0"),
+            new ChatCode(0x0000AA, "1"),
+            new ChatCode(0x00AA00, "2"),
+            new ChatCode(0x00AAAA, "3"),
+            new ChatCode(0xAA0000, "4"),
+            new ChatCode(0xAA00AA, "5"),
+            new ChatCode(0xFFAA00, "6"),
+            new ChatCode(0xAAAAAA, "7"),
+            new ChatCode(0x555555, "8"),
+            new ChatCode(0x5555FF, "9"),
+            new ChatCode(0x55FF55, "a"),
+            new ChatCode(0x55FFFF, "b"),
+            new ChatCode(0xFF5555, "c"),
+            new ChatCode(0xFF55FF, "d"),
+            new ChatCode(0xFFFF55, "e"),
+            new ChatCode(0xFFFFFF, "f"),
+            new ChatCode("k", t -> t.setObfuscated(true)),
+            new ChatCode("l", t -> t.setBold(true)),
+            new ChatCode("m", t -> t.setStrikethrough(true)),
+            new ChatCode("n", t -> t.setUnderlined(true)),
+            new ChatCode("o", t -> t.setItalic(true)),
+            new ChatCode("r", t -> {
             }));
     private static final ChatCode reset = ChatCode.getConstant("r");
 
-    private final int rgbValue;
+    private final Color color;
     private final String code;
     private final boolean isColor;
     private final Consumer<TextComponent> format;
 
-    private ChatCode(int rgbValue, String code, boolean isColor) {
-        this.rgbValue = rgbValue;
+    private ChatCode(int rgbValue, String code) {
+        this.color = new Color(rgbValue);
         this.code = code;
-        this.isColor = isColor;
+        this.isColor = true;
         this.format = text -> text.setColor(ChatColor.getByChar(code.charAt(0)));
     }
 
-    private ChatCode(int rgbValue, String code, boolean isColor, Consumer<TextComponent> format) {
-        this.rgbValue = rgbValue;
+    private ChatCode(String code, Consumer<TextComponent> format) {
+        this.color = null;
         this.code = code;
-        this.isColor = isColor;
+        this.isColor = false;
         this.format = format;
     }
 
     public ChatCode(final int rgbValue) {
-        this.rgbValue = rgbValue;
+        this.color = new Color(rgbValue);
         this.code = null;
         this.isColor = true;
-        this.format = text -> text.setColor(ChatColor.of(new Color(this.rgbValue)));
+        this.format = text -> text.setColor(ChatColor.of(this.color));
     }
 
     public ChatCode(final String rgbHex) {
@@ -80,8 +80,8 @@ public class ChatCode implements Consumer<TextComponent> {
     }
 
     public static double getDistance(ChatCode a, ChatCode c) {
-        final Color c1 = new Color(a.rgbValue);
-        final Color c2 = new Color(c.rgbValue);
+        final Color c1 = a.getColor();
+        final Color c2 = c.getColor();
         int red1 = c1.getRed();
         int red2 = c2.getRed();
         int rmean = (red1 + red2) >> 1;
@@ -91,14 +91,14 @@ public class ChatCode implements Consumer<TextComponent> {
         return Math.sqrt((((512 + rmean) * r * r) >> 8) + 4 * g * g + (((767 - rmean) * b * b) >> 8));
     }
 
-    public static ChatColor calculateGradient(final ChatCode from, final ChatCode to, final float p) {
-        final Color a = new Color(to.getRgbValue());
-        final Color b = new Color(from.getRgbValue());
-        return ChatColor.of(new Color(
+    public static ChatCode calculateGradient(final ChatCode from, final ChatCode to, final float p) {
+        final Color a = to.getColor();
+        final Color b = from.getColor();
+        return new ChatCode(new Color(
                 (int) (a.getRed() * p + b.getRed() * (1 - p)),
                 (int) (a.getGreen() * p + b.getGreen() * (1 - p)),
                 (int) (a.getBlue() * p + b.getBlue() * (1 - p))
-        ));
+        ).getRGB());
     }
 
     public String getCode() {
@@ -120,8 +120,8 @@ public class ChatCode implements Consumer<TextComponent> {
 
      */
 
-    public int getRgbValue() {
-        return this.rgbValue;
+    public Color getColor() {
+        return this.color;
     }
 
     public String format(final boolean legacy) {
@@ -134,7 +134,7 @@ public class ChatCode implements Consumer<TextComponent> {
                 return '\u00A7' + ChatCode.findClosestConstant(this).getCode();
             } else {
                 //  Bukkit.getLogger().info("Sending rgb value!");
-                return net.md_5.bungee.api.ChatColor.of(new Color(this.rgbValue)).toString();
+                return net.md_5.bungee.api.ChatColor.of(this.getColor()).toString();
             }
         }
     }
@@ -145,7 +145,7 @@ public class ChatCode implements Consumer<TextComponent> {
     }
 
     @Override
-    public void accept(TextComponent textComponent) {
+    public void accept(final TextComponent textComponent) {
         this.format.accept(textComponent);
     }
 

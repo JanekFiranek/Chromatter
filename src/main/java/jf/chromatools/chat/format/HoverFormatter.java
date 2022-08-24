@@ -9,13 +9,16 @@ import java.util.regex.MatchResult;
 
 public class HoverFormatter extends ChatFormatter {
 
-    public HoverFormatter() {
-        super("&hover\\[(.+?)\\]", -10);
+    private final boolean enableHex;
+
+    public HoverFormatter(final boolean enableHex) {
+        super("&hover\\[(.+?)\\]", 10);
+        this.enableHex = enableHex;
     }
 
     @Override
     public void format(MatchResult match, FormattedMessage message) {
-        BaseComponent[] components = new FormattedMessage(match.group(1), ChatFormatter.hoverFormatters()).getTextComponents();
+        BaseComponent[] components = new FormattedMessage(match.group(1), ChatFormatter.hoverFormatters(this.enableHex)).getTextComponents();
         message.getFormattingOptions().add(text -> text.setHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_TEXT, new Text(components))));
     }
 }
