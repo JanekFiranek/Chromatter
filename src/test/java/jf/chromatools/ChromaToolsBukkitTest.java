@@ -77,7 +77,7 @@ class ChromaToolsBukkitTest {
         assertEquals("Everything up to this sign", this.serializer.serialize(first));
         assertEquals(" should be lime.", this.serializer.serialize(second));
         assertNotNull(first.color());
-        assertEquals(0x32cd32, first.color().value());
+        assertEquals("#32cd32", first.color().asHexString());
         assertNull(second.color());
     }
 
@@ -94,7 +94,7 @@ class ChromaToolsBukkitTest {
         assertEquals("This message contains a ", this.serializer.serialize(first));
 
         assertNotNull(second.color());
-        assertEquals(0x55ff55, second.color().value());
+        assertEquals("#55ff55", second.color().asHexString());
         assertEquals("&r lol an unformatted reset", this.serializer.serialize(second));
 
 
