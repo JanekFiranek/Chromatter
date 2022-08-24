@@ -3,45 +3,33 @@ package jf.chromatools;
 import be.seeseemelk.mockbukkit.MockBukkit;
 import be.seeseemelk.mockbukkit.ServerMock;
 import be.seeseemelk.mockbukkit.entity.PlayerMock;
-import jf.chromatools.chat.ChatCode;
 import jf.chromatools.chat.FormattedMessage;
 import jf.chromatools.chat.format.ChatFormatter;
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.event.ClickEvent;
-import net.kyori.adventure.text.format.Style;
 import net.kyori.adventure.text.format.TextDecoration;
 import net.kyori.adventure.text.serializer.plain.PlainTextComponentSerializer;
-import org.bukkit.command.Command;
-import org.bukkit.command.CommandExecutor;
-import org.bukkit.command.CommandSender;
-import org.bukkit.entity.Player;
-import org.bukkit.plugin.Plugin;
-import org.jetbrains.annotations.NotNull;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.mockito.Mock;
 
 import java.io.File;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
-import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 class ChromaToolsBukkitTest {
-    private ServerMock server;
     private ChromaToolsBukkit plugin;
     private PlayerMock player;
     private final PlainTextComponentSerializer serializer = PlainTextComponentSerializer.plainText();
 
     @BeforeEach
     void setUp() {
-        this.server = MockBukkit.mock();
+        ServerMock server = MockBukkit.mock();
         this.plugin = MockBukkit.load(ChromaToolsBukkit.class);
-        this.player = this.server.addPlayer();
+        this.player = server.addPlayer();
     }
 
     @AfterEach
@@ -94,7 +82,7 @@ class ChromaToolsBukkitTest {
     }
 
     @Test
-    @SuppressWarnings("deprecation")
+    @SuppressWarnings({"deprecation", "ConstantConditions"})
     public void replacementTest() {
         final String message = "&lThis message contains a &a{placeholder}";
         final FormattedMessage formattedMessage = new FormattedMessage(message, ChatFormatter.defaultFormatters(true));
