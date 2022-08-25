@@ -5,7 +5,7 @@ plugins {
 apply plugin: 'maven-publish'
 
 group = 'jf.chromatools'
-version = 'v1.0.0'
+version = '1.0.0'
 
 repositories {
     mavenCentral()
@@ -21,6 +21,14 @@ repositories {
     }
     maven { url 'https://repo.papermc.io/repository/maven-public/' }
 
+}
+
+publishing {
+    publications {
+        mavenJava(MavenPublication) {
+            from components.java
+        }
+    }
 }
 
 dependencies {
