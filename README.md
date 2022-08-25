@@ -1,6 +1,6 @@
 # ChromaTools
 
-An expandable chat formatting library.
+An expandable spigot text formatting library.
 
 __WIP, this README.md will soon include documentation.__
 
