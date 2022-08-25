@@ -3,7 +3,7 @@ plugins {
 }
 
 group = 'jf.chromalib'
-version = '1.0'
+version = 'v1.0.0'
 
 repositories {
     mavenCentral()
