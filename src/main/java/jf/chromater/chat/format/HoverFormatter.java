@@ -1,6 +1,6 @@
-package jf.chromatools.chat.format;
+package jf.chromater.chat.format;
 
-import jf.chromatools.chat.FormattedMessage;
+import jf.chromater.chat.FormattedMessage;
 import net.md_5.bungee.api.chat.BaseComponent;
 import net.md_5.bungee.api.chat.HoverEvent;
 import net.md_5.bungee.api.chat.hover.content.Text;

@@ -1,5 +1,5 @@
-name: ChromaTools
+name: Chromater
 version: '${version}'
-main: jf.chromatools.ChromaToolsBukkit
+main: jf.chromater.ChromaterBukkit
 api-version: 1.19.2
 authors: [ JanekFiranek ]

@@ -1,4 +1,4 @@
-package jf.chromatools.chat.tokens;
+package jf.chromater.chat.tokens;
 
 import java.util.regex.MatchResult;
 import java.util.regex.Pattern;

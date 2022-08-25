@@ -1,7 +1,7 @@
-package jf.chromatools;
+package jf.chromater;
 
-import jf.chromatools.chat.ChatCode;
-import jf.chromatools.chat.format.ChatFormatter;
+import jf.chromater.chat.ChatCode;
+import jf.chromater.chat.format.ChatFormatter;
 import net.md_5.bungee.api.plugin.Plugin;
 import net.md_5.bungee.config.Configuration;
 import net.md_5.bungee.config.ConfigurationProvider;
@@ -15,7 +15,7 @@ import java.util.Locale;
 import java.util.Map;
 import java.util.Objects;
 
-public class ChromaToolsBungee extends Plugin {
+public class ChromaterBungee extends Plugin {
 
     @Override
     public void onEnable() {

@@ -1,4 +1,4 @@
-name: ChromaTools
-main: jf.chromatools.ChromaToolsBungee
+name: Chromater
+main: jf.chromater.ChromaterBungee
 version: '${version}'
 author: JanekFiranek

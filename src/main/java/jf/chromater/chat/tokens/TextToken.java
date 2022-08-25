@@ -1,4 +1,4 @@
-package jf.chromatools.chat.tokens;
+package jf.chromater.chat.tokens;
 
 public record TextToken(int index, String text) implements ChatToken {
 

@@ -1,4 +1,4 @@
-# ChromaTools
+# Chromater
 
 An expandable spigot text formatting library.
 
