@@ -103,14 +103,15 @@ public class FormattedMessage {
     public TextComponent[] getTextComponents(final String[] replaced, final String[] replacements) {
         if (replaced.length != replacements.length) {
             throw new IllegalArgumentException("Replaced strings' array length doesn't match replacements' array!");
-        } else {
-            for (int i = 0; i < replaced.length; i++) {
-                for (final TextComponent component : components) {
-                    component.setText(component.getText().replace(replaced[i], replacements[i]));
-                }
+        }
+        final List<TextComponent> componentsCopy = this.components.stream().map(TextComponent::duplicate).toList();
+        for (int i = 0; i < replaced.length; i++) {
+            for (final TextComponent component : componentsCopy) {
+                component.setText(component.getText().replace(replaced[i], replacements[i]));
             }
         }
-        return this.components.toArray(TextComponent[]::new);
+
+        return componentsCopy.toArray(TextComponent[]::new);
     }
 
     public TextComponent[] getTextComponents() {

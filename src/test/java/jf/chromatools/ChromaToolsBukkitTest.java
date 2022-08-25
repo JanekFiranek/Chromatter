@@ -97,7 +97,6 @@ class ChromaToolsBukkitTest {
         assertEquals("#55ff55", second.color().asHexString());
         assertEquals("&r lol an unformatted reset", this.serializer.serialize(second));
 
-
     }
 
     @SuppressWarnings("deprecation")
