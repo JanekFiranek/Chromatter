@@ -27,6 +27,7 @@ class ChromaterBukkitTest {
 
     @BeforeEach
     void setUp() {
+
         ServerMock server = MockBukkit.mock();
         this.plugin = MockBukkit.load(ChromaterBukkit.class);
         this.player = server.addPlayer();
@@ -97,6 +98,11 @@ class ChromaterBukkitTest {
         assertEquals("#55ff55", second.color().asHexString());
         assertEquals("&r lol an unformatted reset", this.serializer.serialize(second));
 
+    }
+
+    @Test
+    public void platformCheckTest() {
+        assertEquals(ServerPlatform.getPlatformName(), ServerPlatform.PlatformName.PAPER);
     }
 
     @SuppressWarnings("deprecation")
