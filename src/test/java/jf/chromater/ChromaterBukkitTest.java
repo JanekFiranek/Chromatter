@@ -21,9 +21,9 @@ import java.util.stream.Stream;
 import static org.junit.jupiter.api.Assertions.*;
 
 class ChromaterBukkitTest {
+    private final PlainTextComponentSerializer serializer = PlainTextComponentSerializer.plainText();
     private ChromaterBukkit plugin;
     private PlayerMock player;
-    private final PlainTextComponentSerializer serializer = PlainTextComponentSerializer.plainText();
 
     @BeforeEach
     void setUp() {
@@ -46,7 +46,7 @@ class ChromaterBukkitTest {
         final List<Component> components = this.formatMessage(message);
         assertEquals(28, components.size());
         String previousHex = "";
-        for(final Component component : components) {
+        for (final Component component : components) {
 
             assertTrue(component.hasDecoration(TextDecoration.BOLD));
             assertEquals(1, this.serializer.serialize(component).length());
@@ -87,7 +87,7 @@ class ChromaterBukkitTest {
     public void replacementTest() {
         final String message = "&lThis message contains a &a{placeholder}";
         final FormattedMessage formattedMessage = new FormattedMessage(message, ChatFormatter.defaultFormatters(true));
-        this.player.spigot().sendMessage(formattedMessage.getTextComponents(new String[]{ "{placeholder}"}, new String[]{ "&r lol an unformatted reset"}));
+        this.player.spigot().sendMessage(formattedMessage.getTextComponents(new String[]{"{placeholder}"}, new String[]{"&r lol an unformatted reset"}));
         final Component first = this.player.nextComponentMessage();
         final Component second = this.player.nextComponentMessage();
 

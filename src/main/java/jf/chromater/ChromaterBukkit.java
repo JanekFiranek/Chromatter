@@ -2,7 +2,6 @@ package jf.chromater;
 
 import jf.chromater.chat.ChatCode;
 import jf.chromater.chat.format.ChatFormatter;
-import org.bukkit.Bukkit;
 import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.plugin.PluginDescriptionFile;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -13,7 +12,6 @@ import java.util.HashMap;
 import java.util.Locale;
 import java.util.Map;
 import java.util.Objects;
-import java.util.logging.Logger;
 
 public final class ChromaterBukkit extends JavaPlugin {
 
