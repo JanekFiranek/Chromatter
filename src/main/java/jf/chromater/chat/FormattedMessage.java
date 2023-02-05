@@ -41,20 +41,25 @@ public class FormattedMessage {
             }
         }
 
-        //TODO tidy this ugly code up
+        /*
+        This loop goes through all characters, searching if any of characters is within bounds of a token.
+        This section could use a cleanup
+         */
         StringBuilder t = new StringBuilder();
         for (int i = 0; i < message.length(); i++) {
-            final int j = i;
             char c = message.charAt(i);
-            if (tokens.stream()
-                    .filter(n -> n instanceof FormattingToken)
-                    .map(n -> (FormattingToken) n)
-                    .anyMatch(n -> j >= n.start() && j < n.end())) {
-                if (!t.isEmpty()) {
-                    this.tokens.add(new TextToken(j, t.toString()));
-                    t = new StringBuilder();
+            boolean matched = false;
+            for (ChatToken n : tokens) {
+                if (i >= n.start() && i < n.end()) {
+                    if (!t.isEmpty()) {
+                        this.tokens.add(new TextToken(i, t.toString()));
+                        t = new StringBuilder();
+                    }
+                    matched = true;
+                    break;
                 }
-            } else {
+            }
+            if (!matched) {
                 t.append(c);
             }
         }
@@ -65,7 +70,6 @@ public class FormattedMessage {
         while (!this.tokens.isEmpty()) {
             this.nextStep();
         }
-
     }
 
     public void nextStep() {

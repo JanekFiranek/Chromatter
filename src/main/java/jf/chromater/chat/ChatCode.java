@@ -34,7 +34,6 @@ public class ChatCode implements Consumer<TextComponent> {
             new ChatCode("o", t -> t.setItalic(true)),
             new ChatCode("r", t -> {
             }));
-    private static final ChatCode reset = ChatCode.getConstant("r");
 
     private final Color color;
     private final String code;
@@ -63,7 +62,7 @@ public class ChatCode implements Consumer<TextComponent> {
     }
 
     public ChatCode(final String rgbHex) {
-        this(Integer.valueOf(rgbHex.toLowerCase(), 16));
+        this(Integer.valueOf((rgbHex.startsWith("#") ? rgbHex.substring(1) : rgbHex).toLowerCase(), 16));
     }
 
     public static ChatCode getConstant(final String code) {
@@ -105,21 +104,6 @@ public class ChatCode implements Consumer<TextComponent> {
         return this.code;
     }
 
-
-
-    /*
-    private static void removeColors(final FormattedMessage message) {
-        message.getFormattingOptions().removeIf(n -> {
-            if(n instanceof ChatCode chatCode) {
-                return chatCode.isColor;
-            } else {
-                return false;
-            }
-        });
-    }
-
-     */
-
     public Color getColor() {
         return this.color;
     }
@@ -127,11 +111,11 @@ public class ChatCode implements Consumer<TextComponent> {
     public String format(final boolean legacy) {
         if (this.code != null) {
             //  Bukkit.getLogger().info("My code is " + this.code);
-            return '\u00A7' + this.code;
+            return '§' + this.code;
         } else {
             if (legacy) {
                 //  Bukkit.getLogger().info("It's a legacy client");
-                return '\u00A7' + ChatCode.findClosestConstant(this).getCode();
+                return '§' + ChatCode.findClosestConstant(this).getCode();
             } else {
                 //  Bukkit.getLogger().info("Sending rgb value!");
                 return net.md_5.bungee.api.ChatColor.of(this.getColor()).toString();

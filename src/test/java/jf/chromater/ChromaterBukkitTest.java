@@ -14,8 +14,10 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.io.File;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
+import java.util.Set;
 import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -27,7 +29,6 @@ class ChromaterBukkitTest {
 
     @BeforeEach
     void setUp() {
-
         ServerMock server = MockBukkit.mock();
         this.plugin = MockBukkit.load(ChromaterBukkit.class);
         this.player = server.addPlayer();
@@ -42,7 +43,7 @@ class ChromaterBukkitTest {
     @SuppressWarnings("ConstantConditions")
     public void gradientPriorityTest() {
 
-        final String message = "&#ff0000->#ffffff&l&hover[&mHover]&cmd[/test]Testing red->white gradient.";
+        final String message = "&#ff0000->#ffffff->#0000ff&l&hover[&mHover]&cmd[/test]Testing red->white->blue gradient.";
         final List<Component> components = this.formatMessage(message);
         assertEquals(28, components.size());
         String previousHex = "";
@@ -111,4 +112,5 @@ class ChromaterBukkitTest {
         this.player.spigot().sendMessage(formattedMessage.getTextComponents());
         return Stream.generate(this.player::nextComponentMessage).takeWhile(Objects::nonNull).toList();
     }
+
 }
