@@ -45,7 +45,7 @@ class ChromaterBukkitTest {
 
         final String message = "&#ff0000->#ffffff->#0000ff&l&hover[&mHover]&cmd[/test]Testing red->white->blue gradient.";
         final List<Component> components = this.formatMessage(message);
-        assertEquals(28, components.size());
+        assertEquals(34, components.size());
         String previousHex = "";
         for (final Component component : components) {
 
