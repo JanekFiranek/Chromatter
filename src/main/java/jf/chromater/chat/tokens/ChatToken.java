@@ -1,7 +1,8 @@
 package jf.chromater.chat.tokens;
 
-public interface ChatToken {
-    int start();
 
-    int end();
+public interface ChatToken {
+    int getStart();
+
+    int getEnd();
 }

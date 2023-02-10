@@ -1,5 +1,6 @@
 plugins {
     id 'java'
+    id "io.freefair.lombok" version "6.6.1"
 }
 
 apply plugin: 'maven-publish'
@@ -23,15 +24,6 @@ repositories {
 
 }
 
-publishing {
-    publications {
-        mavenJava(MavenPublication) {
-            from components.java
-
-        }
-    }
-}
-
 dependencies {
     testImplementation 'org.junit.jupiter:junit-jupiter:5.9.0'
     compileOnly 'org.spigotmc:spigot-api:1.19.2-R0.1-SNAPSHOT'
@@ -49,12 +41,12 @@ test {
     useJUnitPlatform()
 }
 
-task copyJarToTestPaper(type: Copy) {
+tasks.register('copyJarToTestPaper', Copy) {
     from "build/libs/Chromater-" + version + ".jar"
     into "testsv/paper/plugins"
 }
 
-task copyJarToTestWaterfall(type: Copy) {
+tasks.register('copyJarToTestWaterfall', Copy) {
     from "build/libs/Chromater-" + version + ".jar"
     into "testsv/waterfall/plugins"
 }

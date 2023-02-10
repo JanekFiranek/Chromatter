@@ -2,6 +2,7 @@ package jf.chromater.chat.format;
 
 import jf.chromater.chat.ChatCode;
 import jf.chromater.chat.FormattedMessage;
+import lombok.Getter;
 
 import java.util.Collections;
 import java.util.Map;
@@ -11,8 +12,9 @@ import java.util.regex.Pattern;
 
 public abstract class ChatFormatter {
     private static Map<String, ChatCode> colorMap = Collections.emptyMap();
-
+    @Getter
     private final Pattern pattern;
+    @Getter
     private final int priority;
 
     protected ChatFormatter(final String pattern, final int priority) {
@@ -37,14 +39,6 @@ public abstract class ChatFormatter {
 
     public static void setColorMap(final Map<String, ChatCode> c) {
         colorMap = c;
-    }
-
-    public int getPriority() {
-        return this.priority;
-    }
-
-    public Pattern getPattern() {
-        return this.pattern;
     }
 
     public abstract void format(final MatchResult match, final FormattedMessage message);

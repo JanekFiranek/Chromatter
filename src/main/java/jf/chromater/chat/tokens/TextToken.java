@@ -1,14 +1,19 @@
 package jf.chromater.chat.tokens;
 
-public record TextToken(int index, String text) implements ChatToken {
+import lombok.Value;
+
+@Value
+public class TextToken implements ChatToken {
+    int index;
+    String text;
 
     @Override
-    public int start() {
+    public int getStart() {
         return this.index - text.length();
     }
 
     @Override
-    public int end() {
+    public int getEnd() {
         return this.index;
     }
 }

@@ -1,5 +1,6 @@
 package jf.chromater.chat;
 
+import lombok.Getter;
 import net.md_5.bungee.api.ChatColor;
 import net.md_5.bungee.api.chat.TextComponent;
 
@@ -35,29 +36,27 @@ public class ChatCode implements Consumer<TextComponent> {
             new ChatCode("r", t -> {
             }));
 
+    @Getter
     private final Color color;
+    @Getter
     private final String code;
-    private final boolean isColor;
     private final Consumer<TextComponent> format;
 
     private ChatCode(int rgbValue, String code) {
         this.color = new Color(rgbValue);
         this.code = code;
-        this.isColor = true;
         this.format = text -> text.setColor(ChatColor.getByChar(code.charAt(0)));
     }
 
     private ChatCode(String code, Consumer<TextComponent> format) {
         this.color = null;
         this.code = code;
-        this.isColor = false;
         this.format = format;
     }
 
     public ChatCode(final int rgbValue) {
         this.color = new Color(rgbValue);
         this.code = null;
-        this.isColor = true;
         this.format = text -> text.setColor(ChatColor.of(this.color));
     }
 
@@ -72,9 +71,7 @@ public class ChatCode implements Consumer<TextComponent> {
 
     public static ChatCode findClosestConstant(final ChatCode rgb) {
         return ChatCode.constants.stream()
-                //  .peek(n -> Bukkit.getLogger().info(n.code + " isColor? " + n.isColor))
-                .filter(n -> n.isColor)
-                //.peek(n -> Bukkit.getLogger().info("Distance from " + n.rgbValue + " to " + rgb.rgbValue + " is " + getDistance(n, rgb)))
+                .filter(ChatCode::isColor)
                 .min(Comparator.comparingDouble(n -> getDistance(rgb, n))).orElse(null);
     }
 
@@ -100,24 +97,13 @@ public class ChatCode implements Consumer<TextComponent> {
         ).getRGB());
     }
 
-    public String getCode() {
-        return this.code;
-    }
-
-    public Color getColor() {
-        return this.color;
-    }
-
     public String format(final boolean legacy) {
         if (this.code != null) {
-            //  Bukkit.getLogger().info("My code is " + this.code);
             return '§' + this.code;
         } else {
             if (legacy) {
-                //  Bukkit.getLogger().info("It's a legacy client");
                 return '§' + ChatCode.findClosestConstant(this).getCode();
             } else {
-                //  Bukkit.getLogger().info("Sending rgb value!");
                 return net.md_5.bungee.api.ChatColor.of(this.getColor()).toString();
             }
         }
@@ -128,13 +114,12 @@ public class ChatCode implements Consumer<TextComponent> {
         return this.format(true);
     }
 
+    public boolean isColor() {
+        return this.color != null;
+    }
+
     @Override
     public void accept(final TextComponent textComponent) {
         this.format.accept(textComponent);
-    }
-
-
-    public boolean isColor() {
-        return this.isColor;
     }
 }

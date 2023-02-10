@@ -30,14 +30,14 @@ public class RandomFormatter extends ChatFormatter {
         }
         if (tokens.peek() instanceof TextToken textToken) {
             tokens.remove();
-            final String text = textToken.text();
+            final String text = textToken.getText();
             final List<TextComponent> components = message.getComponents();
             for (int i = 0; i < text.length(); i++) {
                 TextComponent component = new TextComponent();
                 final ChatCode hex = new ChatCode(r.nextInt(0xffffff));
                 component.setColor(this.enableHex ? ChatColor.of(hex.getColor()) : ChatColor.of(ChatCode.findClosestConstant(hex).getCode()));
                 message.getFormattingOptions().forEach(n -> n.accept(component));
-                component.setText("" + text.charAt(i));
+                component.setText(Character.toString(text.charAt(i)));
                 components.add(component);
             }
         }

@@ -38,7 +38,7 @@ public final class ChromaterBukkit extends JavaPlugin {
             }
         }
         ChatFormatter.setColorMap(colorMap);
-        //lol
+        //for the bri'ish
         this.getLogger().info("Loaded " + colorMap.size() + " custom colo" + (Locale.getDefault().equals(Locale.UK) ? "u" : "") + "rs from config.");
     }
 }

@@ -15,13 +15,14 @@ import java.util.stream.Collectors;
 
 public class FormattedMessage {
     private final Queue<ChatToken> tokens;
+
     private final List<TextComponent> components;
     private final Set<Consumer<TextComponent>> formattingOptions;
     private final Map<Pattern, ChatFormatter> format;
 
     public FormattedMessage(final String message, final Set<ChatFormatter> format) {
         this.format = new HashMap<>();
-        this.tokens = new PriorityQueue<>(Comparator.comparingInt(ChatToken::end));
+        this.tokens = new PriorityQueue<>(Comparator.comparingInt(ChatToken::getEnd));
         this.components = new ArrayList<>();
         this.formattingOptions = new HashSet<>();
         format.forEach(n -> this.format.put(n.getPattern(), n));
@@ -50,7 +51,7 @@ public class FormattedMessage {
             char c = message.charAt(i);
             boolean matched = false;
             for (ChatToken n : tokens) {
-                if (i >= n.start() && i < n.end()) {
+                if (i >= n.getStart() && i < n.getEnd()) {
                     if (!t.isEmpty()) {
                         this.tokens.add(new TextToken(i, t.toString()));
                         t = new StringBuilder();
@@ -77,11 +78,11 @@ public class FormattedMessage {
         final ChatToken token = this.tokens.remove();
         if (token instanceof TextToken textToken) {
             final TextComponent component = new TextComponent();
-            component.setText(textToken.text());
+            component.setText(textToken.getText());
             this.formattingOptions.forEach(n -> n.accept(component));
             this.components.add(component);
         } else if (token instanceof FormattingToken formattingToken) {
-            this.format.get(formattingToken.pattern()).format(formattingToken.result(), this);
+            this.format.get(formattingToken.getPattern()).format(formattingToken.getResult(), this);
         }
     }
 
