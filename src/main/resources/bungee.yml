@@ -1,4 +1,4 @@
-name: Chromater
-main: jf.chromater.ChromaterBungee
+name: Chromatter
+main: jf.Chromatter.ChromatterBungee
 version: '${version}'
 author: JanekFiranek

@@ -1,9 +1,9 @@
-package jf.chromater.chat;
+package jf.chromatter.chat;
 
-import jf.chromater.chat.format.ChatFormatter;
-import jf.chromater.chat.tokens.ChatToken;
-import jf.chromater.chat.tokens.FormattingToken;
-import jf.chromater.chat.tokens.TextToken;
+import jf.chromatter.chat.format.ChatFormatter;
+import jf.chromatter.chat.tokens.ChatToken;
+import jf.chromatter.chat.tokens.FormattingToken;
+import jf.chromatter.chat.tokens.TextToken;
 import net.md_5.bungee.api.chat.TextComponent;
 
 import java.util.*;

@@ -6,7 +6,7 @@ plugins {
 
 apply plugin: 'maven-publish'
 
-group = 'jf.chromater'
+group = 'jf.chromatter'
 version = '1.0.0'
 
 repositories {
@@ -52,12 +52,12 @@ test {
 }
 
 tasks.register('copyJarToTestPaper', Copy) {
-    from "build/libs/Chromater-" + version + ".jar"
+    from "build/libs/Chromatter-" + version + ".jar"
     into "testsv/paper/plugins"
 }
 
 tasks.register('copyJarToTestWaterfall', Copy) {
-    from "build/libs/Chromater-" + version + ".jar"
+    from "build/libs/Chromatter-" + version + ".jar"
     into "testsv/waterfall/plugins"
 }
 

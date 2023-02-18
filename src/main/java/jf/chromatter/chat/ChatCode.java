@@ -1,4 +1,4 @@
-package jf.chromater.chat;
+package jf.chromatter.chat;
 
 import lombok.Getter;
 import net.md_5.bungee.api.ChatColor;

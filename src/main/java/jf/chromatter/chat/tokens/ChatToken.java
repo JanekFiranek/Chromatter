@@ -1,4 +1,4 @@
-package jf.chromater.chat.tokens;
+package jf.chromatter.chat.tokens;
 
 
 public interface ChatToken {

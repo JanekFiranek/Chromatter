@@ -1,10 +1,10 @@
-package jf.chromater;
+package jf.chromatter;
 
 import be.seeseemelk.mockbukkit.MockBukkit;
 import be.seeseemelk.mockbukkit.ServerMock;
 import be.seeseemelk.mockbukkit.entity.PlayerMock;
-import jf.chromater.chat.FormattedMessage;
-import jf.chromater.chat.format.ChatFormatter;
+import jf.chromatter.chat.FormattedMessage;
+import jf.chromatter.chat.format.ChatFormatter;
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.event.ClickEvent;
 import net.kyori.adventure.text.format.TextDecoration;
@@ -14,23 +14,21 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.io.File;
-import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
-import java.util.Set;
 import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class ChromaterBukkitTest {
+class ChromatterBukkitTest {
     private final PlainTextComponentSerializer serializer = PlainTextComponentSerializer.plainText();
-    private ChromaterBukkit plugin;
+    private ChromatterBukkit plugin;
     private PlayerMock player;
 
     @BeforeEach
     void setUp() {
         ServerMock server = MockBukkit.mock();
-        this.plugin = MockBukkit.load(ChromaterBukkit.class);
+        this.plugin = MockBukkit.load(ChromatterBukkit.class);
         this.player = server.addPlayer();
     }
 

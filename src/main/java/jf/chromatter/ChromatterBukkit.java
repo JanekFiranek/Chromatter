@@ -1,7 +1,7 @@
-package jf.chromater;
+package jf.chromatter;
 
-import jf.chromater.chat.ChatCode;
-import jf.chromater.chat.format.ChatFormatter;
+import jf.chromatter.chat.ChatCode;
+import jf.chromatter.chat.format.ChatFormatter;
 import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.plugin.PluginDescriptionFile;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -13,14 +13,14 @@ import java.util.Locale;
 import java.util.Map;
 import java.util.Objects;
 
-public final class ChromaterBukkit extends JavaPlugin {
+public final class ChromatterBukkit extends JavaPlugin {
 
     //MockBukkit integration
-    private ChromaterBukkit(JavaPluginLoader loader, PluginDescriptionFile description, File dataFolder, File file) {
+    private ChromatterBukkit(JavaPluginLoader loader, PluginDescriptionFile description, File dataFolder, File file) {
         super(loader, description, dataFolder, file);
     }
 
-    public ChromaterBukkit() {
+    public ChromatterBukkit() {
         super();
     }
 

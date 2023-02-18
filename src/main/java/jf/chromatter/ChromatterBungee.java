@@ -1,7 +1,7 @@
-package jf.chromater;
+package jf.chromatter;
 
-import jf.chromater.chat.ChatCode;
-import jf.chromater.chat.format.ChatFormatter;
+import jf.chromatter.chat.ChatCode;
+import jf.chromatter.chat.format.ChatFormatter;
 import net.md_5.bungee.api.plugin.Plugin;
 import net.md_5.bungee.config.Configuration;
 import net.md_5.bungee.config.ConfigurationProvider;
@@ -11,11 +11,10 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.HashMap;
-import java.util.Locale;
 import java.util.Map;
 import java.util.Objects;
 
-public class ChromaterBungee extends Plugin {
+public class ChromatterBungee extends Plugin {
 
     @Override
     public void onEnable() {
@@ -39,8 +38,6 @@ public class ChromaterBungee extends Plugin {
                 }
             }
             ChatFormatter.setColorMap(colorMap);
-            //lol
-            this.getLogger().info("Loaded " + colorMap.size() + " custom colo" + (Locale.getDefault().equals(Locale.UK) ? "u" : "") + "rs from config.");
         } catch (IOException e) {
             throw new RuntimeException(e);
         }

@@ -1,10 +1,10 @@
-package jf.chromater.chat.format;
+package jf.chromatter.chat.format;
 
-import jf.chromater.chat.ChatCode;
-import jf.chromater.chat.FormattedMessage;
-import jf.chromater.chat.tokens.ChatToken;
-import jf.chromater.chat.tokens.FormattingToken;
-import jf.chromater.chat.tokens.TextToken;
+import jf.chromatter.chat.ChatCode;
+import jf.chromatter.chat.FormattedMessage;
+import jf.chromatter.chat.tokens.ChatToken;
+import jf.chromatter.chat.tokens.FormattingToken;
+import jf.chromatter.chat.tokens.TextToken;
 import net.md_5.bungee.api.ChatColor;
 import net.md_5.bungee.api.chat.TextComponent;
 

@@ -1,5 +1,5 @@
-name: Chromater
+name: Chromatter
 version: '${version}'
-main: jf.chromater.ChromaterBukkit
+main: jf.chromatter.ChromatterBukkit
 api-version: 1.17
 authors: [ JanekFiranek ]

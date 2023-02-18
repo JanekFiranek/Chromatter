@@ -1,7 +1,7 @@
-package jf.chromater.chat.format;
+package jf.chromatter.chat.format;
 
-import jf.chromater.chat.ChatCode;
-import jf.chromater.chat.FormattedMessage;
+import jf.chromatter.chat.ChatCode;
+import jf.chromatter.chat.FormattedMessage;
 
 import java.util.regex.MatchResult;
 

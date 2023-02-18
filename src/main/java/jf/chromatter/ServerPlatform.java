@@ -1,4 +1,4 @@
-package jf.chromater;
+package jf.chromatter;
 
 public class ServerPlatform {
 

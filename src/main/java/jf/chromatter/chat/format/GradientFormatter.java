@@ -1,13 +1,12 @@
-package jf.chromater.chat.format;
+package jf.chromatter.chat.format;
 
-import jf.chromater.chat.ChatCode;
-import jf.chromater.chat.FormattedMessage;
-import jf.chromater.chat.tokens.ChatToken;
-import jf.chromater.chat.tokens.FormattingToken;
-import jf.chromater.chat.tokens.TextToken;
+import jf.chromatter.chat.ChatCode;
+import jf.chromatter.chat.FormattedMessage;
+import jf.chromatter.chat.tokens.ChatToken;
+import jf.chromatter.chat.tokens.FormattingToken;
+import jf.chromatter.chat.tokens.TextToken;
 import net.md_5.bungee.api.ChatColor;
 import net.md_5.bungee.api.chat.TextComponent;
-import org.bukkit.Bukkit;
 
 import java.util.Arrays;
 import java.util.LinkedList;
@@ -55,8 +54,6 @@ public class GradientFormatter extends ChatFormatter {
                     for (int c = 0; c < section.length(); c++) {
                         final TextComponent component = new TextComponent();
                         final ChatCode hex = ChatCode.calculateGradient(from, to, (float) c / (float) section.length());
-                        Bukkit.getLogger().info(hex.getColor().toString());
-                        Bukkit.getLogger().info(Character.toString(text.charAt(c)));
                         component.setColor(this.enableHex ? ChatColor.of(hex.getColor()) : ChatColor.of(ChatCode.findClosestConstant(hex).getCode()));
                         message.getFormattingOptions().forEach(n -> n.accept(component));
                         component.setText(Character.toString(text.charAt(c)));

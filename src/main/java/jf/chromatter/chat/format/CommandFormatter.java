@@ -1,6 +1,6 @@
-package jf.chromater.chat.format;
+package jf.chromatter.chat.format;
 
-import jf.chromater.chat.FormattedMessage;
+import jf.chromatter.chat.FormattedMessage;
 import net.md_5.bungee.api.chat.ClickEvent;
 
 import java.util.regex.MatchResult;
