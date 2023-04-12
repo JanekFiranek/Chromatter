@@ -1,9 +1,9 @@
-package jf.chromatter.chat.format;
+package tech.firanek.chromatter.chat.format;
 
-import jf.chromatter.chat.FormattedMessage;
 import net.md_5.bungee.api.chat.BaseComponent;
 import net.md_5.bungee.api.chat.HoverEvent;
 import net.md_5.bungee.api.chat.hover.content.Text;
+import tech.firanek.chromatter.chat.FormattedMessage;
 
 import java.util.regex.MatchResult;
 

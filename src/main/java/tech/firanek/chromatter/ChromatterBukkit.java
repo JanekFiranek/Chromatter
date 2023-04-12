@@ -1,11 +1,11 @@
-package jf.chromatter;
+package tech.firanek.chromatter;
 
-import jf.chromatter.chat.ChatCode;
-import jf.chromatter.chat.format.ChatFormatter;
 import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.plugin.PluginDescriptionFile;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.plugin.java.JavaPluginLoader;
+import tech.firanek.chromatter.chat.ChatCode;
+import tech.firanek.chromatter.chat.format.ChatFormatter;
 
 import java.io.File;
 import java.util.HashMap;

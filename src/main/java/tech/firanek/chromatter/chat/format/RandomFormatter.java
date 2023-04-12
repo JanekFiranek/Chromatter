@@ -1,12 +1,12 @@
-package jf.chromatter.chat.format;
+package tech.firanek.chromatter.chat.format;
 
-import jf.chromatter.chat.ChatCode;
-import jf.chromatter.chat.FormattedMessage;
-import jf.chromatter.chat.tokens.ChatToken;
-import jf.chromatter.chat.tokens.FormattingToken;
-import jf.chromatter.chat.tokens.TextToken;
 import net.md_5.bungee.api.ChatColor;
 import net.md_5.bungee.api.chat.TextComponent;
+import tech.firanek.chromatter.chat.ChatCode;
+import tech.firanek.chromatter.chat.FormattedMessage;
+import tech.firanek.chromatter.chat.tokens.ChatToken;
+import tech.firanek.chromatter.chat.tokens.FormattingToken;
+import tech.firanek.chromatter.chat.tokens.TextToken;
 
 import java.util.List;
 import java.util.Queue;

@@ -1,8 +1,8 @@
-package jf.chromatter.chat.format;
+package tech.firanek.chromatter.chat.format;
 
-import jf.chromatter.chat.ChatCode;
-import jf.chromatter.chat.FormattedMessage;
 import lombok.Getter;
+import tech.firanek.chromatter.chat.ChatCode;
+import tech.firanek.chromatter.chat.FormattedMessage;
 
 import java.util.Collections;
 import java.util.Map;

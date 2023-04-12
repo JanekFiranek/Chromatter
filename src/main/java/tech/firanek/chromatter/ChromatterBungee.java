@@ -1,11 +1,11 @@
-package jf.chromatter;
+package tech.firanek.chromatter;
 
-import jf.chromatter.chat.ChatCode;
-import jf.chromatter.chat.format.ChatFormatter;
 import net.md_5.bungee.api.plugin.Plugin;
 import net.md_5.bungee.config.Configuration;
 import net.md_5.bungee.config.ConfigurationProvider;
 import net.md_5.bungee.config.YamlConfiguration;
+import tech.firanek.chromatter.chat.ChatCode;
+import tech.firanek.chromatter.chat.format.ChatFormatter;
 
 import java.io.File;
 import java.io.FileOutputStream;

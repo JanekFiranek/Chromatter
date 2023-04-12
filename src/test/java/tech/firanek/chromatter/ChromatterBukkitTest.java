@@ -1,10 +1,8 @@
-package jf.chromatter;
+package tech.firanek.chromatter;
 
 import be.seeseemelk.mockbukkit.MockBukkit;
 import be.seeseemelk.mockbukkit.ServerMock;
 import be.seeseemelk.mockbukkit.entity.PlayerMock;
-import jf.chromatter.chat.FormattedMessage;
-import jf.chromatter.chat.format.ChatFormatter;
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.event.ClickEvent;
 import net.kyori.adventure.text.format.TextDecoration;
@@ -12,6 +10,8 @@ import net.kyori.adventure.text.serializer.plain.PlainTextComponentSerializer;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import tech.firanek.chromatter.chat.FormattedMessage;
+import tech.firanek.chromatter.chat.format.ChatFormatter;
 
 import java.io.File;
 import java.util.List;

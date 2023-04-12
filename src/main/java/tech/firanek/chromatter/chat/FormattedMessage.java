@@ -1,10 +1,10 @@
-package jf.chromatter.chat;
+package tech.firanek.chromatter.chat;
 
-import jf.chromatter.chat.format.ChatFormatter;
-import jf.chromatter.chat.tokens.ChatToken;
-import jf.chromatter.chat.tokens.FormattingToken;
-import jf.chromatter.chat.tokens.TextToken;
 import net.md_5.bungee.api.chat.TextComponent;
+import tech.firanek.chromatter.chat.format.ChatFormatter;
+import tech.firanek.chromatter.chat.tokens.ChatToken;
+import tech.firanek.chromatter.chat.tokens.FormattingToken;
+import tech.firanek.chromatter.chat.tokens.TextToken;
 
 import java.util.*;
 import java.util.function.Consumer;

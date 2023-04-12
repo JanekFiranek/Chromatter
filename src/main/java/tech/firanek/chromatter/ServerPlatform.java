@@ -1,4 +1,4 @@
-package jf.chromatter;
+package tech.firanek.chromatter;
 
 public class ServerPlatform {
 
